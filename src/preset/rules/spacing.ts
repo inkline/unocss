@@ -1,19 +1,45 @@
 import type { Rule } from '@unocss/core';
-import { sidesPropertyRule } from '../utilities';
 import { PresetInklineOptions } from '../types';
+import { sidesPropertyRule } from './helpers';
 
 export const paddingRules = (options: PresetInklineOptions): Rule[] => [
-    [/^pa?()-?(-?.+)$/, sidesPropertyRule('padding'), { autocomplete: ['(m|p)<num>', '(m|p)-<num>'] }],
-    [/^p-?xy()()$/, sidesPropertyRule('padding'), { autocomplete: '(m|p)-(xy)' }],
-    [/^p-?([xy])(?:-?(-?.+))?$/, sidesPropertyRule('padding')],
-    [/^p-?([rltbse])(?:-?(-?.+))?$/, sidesPropertyRule('padding'), { autocomplete: '(m|p)<directions>-<num>' }],
-    [/^p-(block|inline)(?:-(-?.+))?$/, sidesPropertyRule('padding'), { autocomplete: '(m|p)-(block|inline)-<num>' }],
-    [/^p-?([bi][se])(?:-?(-?.+))?$/, sidesPropertyRule('padding'), { autocomplete: '(m|p)-(bs|be|is|ie)-<num>' }]
+    [
+        /^padding()(?::(-?.+))?$/,
+        sidesPropertyRule('padding'),
+        { autocomplete: ['(margin|padding):<num>'] }
+    ],
+    [
+        /^padding-(top|right|bottom|left|start|end|x|y)(?::(-?.+))?$/,
+        sidesPropertyRule('padding'),
+        { autocomplete: '(margin|padding)-<sides>:<num>' }
+    ],
+    [
+        /^padding-(block|inline)(?::(-?.+))?$/,
+        sidesPropertyRule('padding'),
+        { autocomplete: '(margin|padding)-(block|inline):<num>' }
+    ],
+    [
+        /^padding-(block-start|block-end|inline-start|inline-end)(?::(-?.+))?$/,
+        sidesPropertyRule('padding'),
+        { autocomplete: '(margin|padding)-(block-start|block-end|inline-start|inline-end):<num>' }
+    ]
 ];
 
 export const marginRules = (options: PresetInklineOptions): Rule[] => [
-    [new RegExp(`^${options.prefix}margin?()-?(-?.+)$`), sidesPropertyRule('margin')],
-    [new RegExp(`^${options.prefix}margin-?(top|right|bottom|left|start|end|x|y)(?:-?(-?.+))?$`), sidesPropertyRule('margin')],
-    [/^m-(block|inline)(?:-(-?.+))?$/, sidesPropertyRule('margin')],
-    [/^m-?([bi][se])(?:-?(-?.+))?$/, sidesPropertyRule('margin')]
+    [
+        /^margin()(?::(-?.+))?$/,
+        sidesPropertyRule('margin')
+    ],
+    [
+        /^margin-(top|right|bottom|left|start|end|x|y)(?::(-?.+))?$/,
+        sidesPropertyRule('margin')
+    ],
+    [
+        /^margin-(block|inline)(?::(-?.+))?$/,
+        sidesPropertyRule('margin')
+    ],
+    [
+        /^margin-(block-start|block-end|inline-start|inline-end)(?::(-?.+))?$/,
+        sidesPropertyRule('margin')
+    ]
 ];
