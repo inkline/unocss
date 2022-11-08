@@ -9,7 +9,7 @@ export function sidesPropertyRule (propertyName: string): DynamicMatcher {
         }
 
         const getComputedSize = (propertyName: string, side: string, size: string):string => /^-?\d+(\.\d+)?$/.test(size)
-            ? `calc(var(--${propertyName}-${side}) * ${size})`
+            ? (size === '1' ? `var(--${propertyName}-${side})` : `calc(var(--${propertyName}-${side}) * ${size})`)
             : size;
 
         if (value) {
