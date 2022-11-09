@@ -1,10 +1,6 @@
-# @inkline/plugin
+# @inkline/unocss
 
-> 🚧 This package is still **Work In Progress**.
-
-Support for file-based Design System configuration by [@alexgrozav](http://github.com/alexgrozav).
-
-✅ Supports both TypeScript and JavaScript
+UnoCSS Atomic CSS Utility Classes generator Preset by [@alexgrozav](http://github.com/alexgrozav).
 
 ✅ Fully typed
 
@@ -14,27 +10,33 @@ Support for file-based Design System configuration by [@alexgrozav](http://githu
 
 ## Installation
 ~~~bash
-npm i -S @inkline/plugin
+npm i -S @inkline/unocss
 ~~~
 
 ## Usage
-Create an `inkline.config.ts` file and override configuration as needed:
 
 ~~~ts
-export default {
-    theme: {
-        color: {
-            red: '#ff0000'
-        },
-        margin: {
-            top: '1rem',
-            right: '1rem',
-            bottom: '1rem',
-            left: '1rem'
-        }
-    }
-}
+import { defineConfig } from 'vite';
+import { inkline } from '@inkline/plugin/vite';
+import { resolve } from 'path';
+import unocss from '@unocss/vite';
+import { presetInkline, UserOptions } from '@inkline/unocss';
+
+const inklineConfig: UserOptions = {
+    outputDir: resolve(__dirname, 'src/css/config')
+};
+
+// https://vitejs.dev/config/
+export default defineConfig({
+    plugins: [
+        inkline(inklineConfig),
+        unocss({
+            presets: [presetInkline(inklineConfig)]
+        })
+    ]
+});
+
 ~~~
 
 ## License
-ISC
+Commercial
