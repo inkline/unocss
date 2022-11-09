@@ -1,7 +1,6 @@
 import type { Rule } from '@unocss/core';
-import { PresetInklineOptions } from '../types';
 
-export const typographyRules = (options: PresetInklineOptions): Rule[] => [
+export const typographyRules : Rule[] = [
     [/^text(?:-align)?:(left|center|right|justify)$/, ([, value]) => ({ 'text-align': value })],
     [/^text(?:-transform)?:(lowercase|uppercase|capitalize)$/, ([, value]) => ({ 'text-transform': value })],
     [/^(font-weight|text):(lighter|extralight|light|normal|semibold|bold|black|bolder)$/, ([, value]) => ({ 'font-weight': `var(--font-weight-${value})` })],

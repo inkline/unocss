@@ -1,7 +1,6 @@
 import type { Rule } from '@unocss/core';
-import { PresetInklineOptions } from '../types';
 
-export const positionRules = (options: PresetInklineOptions): Rule[] => [
+export const positionRules : Rule[] = [
     [/^position:(static|relative|absolute|fixed|sticky)$/, ([_, value]) => ({ position: value })],
     ['position:fixed-top', {
         position: 'fixed',

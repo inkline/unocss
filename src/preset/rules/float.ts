@@ -1,8 +1,7 @@
 import { toEscapedSelector as e } from 'unocss';
 import type { Rule } from '@unocss/core';
-import { PresetInklineOptions } from '../types';
 
-export const floatRules = (options: PresetInklineOptions): Rule[] => [
+export const floatRules : Rule[] = [
     [/^float:(.+)$/, ([_, value]) => ({ float: value })],
     [/^clearfix$/, (_, { rawSelector }) => {
         const selector = e(rawSelector);

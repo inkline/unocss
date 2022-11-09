@@ -1,25 +1,33 @@
 import { PresetInklineOptions, Theme } from './types';
 import { Preset } from 'unocss/dist';
-import { DEFAULT_CLASS_PREFIX } from './constants';
-import { resolve } from 'pathe';
-import { DEFAULT_OUTPUT_DIR } from '@inkline/config';
-import { readFileSync } from 'fs';
+import { loadConfigFromFile } from '@inkline/config';
 import { rules } from './rules';
 import { variants } from './variants';
+import { DEFAULT_CLASS_PREFIX } from './constants';
+import { UserOptions } from '../plugin/types';
 
-export const presetInkline = (options: PresetInklineOptions = {}): Preset<Theme> => {
-    options.prefix = options.prefix ?? DEFAULT_CLASS_PREFIX;
+export function presetInkline (options: UserOptions, presetOptions: PresetInklineOptions = {}): Preset<Theme> {
+    const theme = {} as unknown as Theme;
 
-    const outputDir = options.outputDir || resolve(process.cwd(), DEFAULT_OUTPUT_DIR);
-    const manifestFile = JSON.parse(readFileSync(resolve(outputDir, 'manifest.json'), 'utf-8'));
-    const theme = manifestFile.default;
+    presetOptions.prefix = presetOptions.prefix || DEFAULT_CLASS_PREFIX;
 
     return {
-        name: '@unocss/preset-mini',
-        rules: rules(options),
-        variants: variants(options),
-        prefix: options.prefix,
+        name: '@inkline/unocss',
+        rules,
         theme,
-        options
+        variants,
+        prefix: presetOptions.prefix,
+        options: presetOptions,
+        preflights: [
+            {
+                getCSS: async () => {
+                    const config = await loadConfigFromFile(options);
+
+                    Object.assign(theme, config.theme.default);
+
+                    return '';
+                }
+            }
+        ]
     };
-};
+}

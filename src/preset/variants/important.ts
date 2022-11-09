@@ -1,7 +1,7 @@
 import type { Variant } from '@unocss/core';
 import { PresetInklineOptions } from '../types';
 
-export const importantVariant = (options: PresetInklineOptions): Variant => ({
+export const importantVariant: Variant = {
     name: 'important',
     match (matcher) {
         let base: string | undefined;
@@ -28,4 +28,4 @@ export const importantVariant = (options: PresetInklineOptions): Variant => ({
             };
         }
     }
-});
+};

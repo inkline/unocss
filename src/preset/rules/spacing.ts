@@ -1,8 +1,7 @@
 import type { Rule } from '@unocss/core';
-import { PresetInklineOptions } from '../types';
 import { sidesPropertyRule } from './helpers';
 
-export const paddingRules = (options: PresetInklineOptions): Rule[] => [
+export const paddingRules : Rule[] = [
     [
         /^padding()(?::(-?.+))?$/,
         sidesPropertyRule('padding'),
@@ -25,7 +24,7 @@ export const paddingRules = (options: PresetInklineOptions): Rule[] => [
     ]
 ];
 
-export const marginRules = (options: PresetInklineOptions): Rule[] => [
+export const marginRules : Rule[] = [
     [
         /^margin()(?::(-?.+))?$/,
         sidesPropertyRule('margin')

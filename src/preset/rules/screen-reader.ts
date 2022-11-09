@@ -1,6 +1,5 @@
 import { toEscapedSelector as e } from 'unocss';
 import type { Rule } from '@unocss/core';
-import { PresetInklineOptions } from '../types';
 
 const visuallyHiddenCSS = `    position: absolute !important;
     width: 1px !important;
@@ -9,7 +8,7 @@ const visuallyHiddenCSS = `    position: absolute !important;
     left: 1px;
     overflow: hidden;`;
 
-export const screenReaderRules = (options: PresetInklineOptions): Rule[] => [
+export const screenReaderRules : Rule[] = [
     [/^visually-hidden$/, (_, { rawSelector }) => {
         const selector = e(rawSelector);
 

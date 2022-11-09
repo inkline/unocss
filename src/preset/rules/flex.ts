@@ -1,7 +1,6 @@
 import type { Rule } from '@unocss/core';
-import { PresetInklineOptions } from '../types';
 
-export const flexRules = (options: PresetInklineOptions): Rule[] => [
+export const flexRules : Rule[] = [
     [
         /^flex(?:-direction)?(?::(row|row-reverse|column|column-reverse))$/,
         ([_, value]) => [['flex-direction', value]],

@@ -1,8 +1,7 @@
 import { toEscapedSelector as e } from 'unocss';
 import type { Rule } from '@unocss/core';
-import { PresetInklineOptions } from '../types';
 
-export const overlayRules = (options: PresetInklineOptions): Rule[] => [
+export const overlayRules : Rule[] = [
     [
         'overlay', {
             position: 'absolute',

@@ -1,6 +1,5 @@
 import type { Rule } from '@unocss/core';
-import { PresetInklineOptions } from '../types';
 
-export const overflowRules = (options: PresetInklineOptions): Rule[] => [
+export const overflowRules : Rule[] = [
     [/^overflow:(.+)$/, ([_, value]) => ({ overflow: value })]
 ];

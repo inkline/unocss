@@ -1,8 +1,7 @@
 import type { Rule } from '@unocss/core';
-import { PresetInklineOptions } from '../types';
 import { colorPropertyRule } from './helpers';
 
-export const colorRules = (options: PresetInklineOptions): Rule[] => [
+export const colorRules : Rule[] = [
     [
         /^(?:text-)?color(?::(-?.+))?$/,
         colorPropertyRule('color'),

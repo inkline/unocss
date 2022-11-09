@@ -1,7 +1,6 @@
 import type { Rule } from '@unocss/core';
-import { PresetInklineOptions } from '../types';
 
-export const displayRules = (options: PresetInklineOptions): Rule[] => [
+export const displayRules : Rule[] = [
     [
         /^display(?::(.+))$/,
         ([_, value]) => [['display', value]],

@@ -1,8 +1,8 @@
 import { toEscapedSelector as e } from 'unocss';
 import type { Rule } from '@unocss/core';
-import { PresetInklineOptions, Theme } from '../types';
+import { Theme } from '../types';
 
-export const visibilityRules = (options: PresetInklineOptions): Rule<Theme>[] => [
+export const visibilityRules: Rule<Theme>[] = [
     [/^([a-zA-Z0-9]+):visible(?::.+)?$/, ([_, breakpoint, display], { theme, rawSelector }) => {
         const selector = e(rawSelector);
 

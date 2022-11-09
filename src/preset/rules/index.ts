@@ -1,4 +1,3 @@
-import { PresetInklineOptions } from '../types';
 import { textAlignmentRules, verticalAlignmentRules } from './align';
 import { borderRules } from './border';
 import { borderRadiusRules } from './border-radius';
@@ -15,26 +14,26 @@ import { screenReaderRules } from './screen-reader';
 import { marginRules, paddingRules } from './spacing';
 import { sizingRules } from './sizing';
 import { typographyRules } from './typography';
-import {visibilityRules} from "./visibility";
+import { visibilityRules } from './visibility';
 
-export const rules = (options: PresetInklineOptions) => [
-    ...borderRules(options),
-    ...borderRadiusRules(options),
-    ...colorRules(options),
-    ...displayRules(options),
-    ...embedRules(options),
-    ...flexRules(options),
-    ...floatRules(options),
-    ...listRules(options),
-    ...textAlignmentRules(options),
-    ...verticalAlignmentRules(options),
-    ...overflowRules(options),
-    ...overlayRules(options),
-    ...positionRules(options),
-    ...screenReaderRules(options),
-    ...marginRules(options),
-    ...paddingRules(options),
-    ...sizingRules(options),
-    ...typographyRules(options),
-    ...visibilityRules(options)
+export const rules = [
+    ...borderRules,
+    ...borderRadiusRules,
+    ...colorRules,
+    ...displayRules,
+    ...embedRules,
+    ...flexRules,
+    ...floatRules,
+    ...listRules,
+    ...textAlignmentRules,
+    ...verticalAlignmentRules,
+    ...overflowRules,
+    ...overlayRules,
+    ...positionRules,
+    ...screenReaderRules,
+    ...marginRules,
+    ...paddingRules,
+    ...sizingRules,
+    ...typographyRules,
+    ...visibilityRules
 ];

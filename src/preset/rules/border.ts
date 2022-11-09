@@ -1,8 +1,7 @@
 import type { Rule } from '@unocss/core';
-import { PresetInklineOptions } from '../types';
 import { borderPropertyRule } from './helpers';
 
-export const borderRules = (options: PresetInklineOptions): Rule[] => [
+export const borderRules : Rule[] = [
     [
         /^border(?::(-?.+))?$/,
         borderPropertyRule,

@@ -1,8 +1,7 @@
 import type { Rule } from '@unocss/core';
-import { PresetInklineOptions } from '../types';
 import { cornersPropertyRule } from './helpers';
 
-export const borderRadiusRules = (options: PresetInklineOptions): Rule[] => [
+export const borderRadiusRules : Rule[] = [
     [
         /^border-radius()(?::(-?.+))?$/,
         cornersPropertyRule,

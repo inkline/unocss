@@ -1,7 +1,6 @@
 import type { Rule } from '@unocss/core';
-import { PresetInklineOptions } from '../types';
 
-export const sizingRules = (options: PresetInklineOptions): Rule[] => [
+export const sizingRules : Rule[] = [
     [/^height:(.+)$/, ([, value]) => ({ height: value })],
     [/^max-height:(.+)$/, ([, value]) => ({ 'max-height': value })],
     [/^width:(.+)$/, ([, value]) => ({ width: value })],

@@ -1,6 +1,5 @@
 import type { Rule } from '@unocss/core';
 import { globalKeywords } from '../utilities';
-import { PresetInklineOptions } from '../types';
 
 const textAlignments = [
     'center',
@@ -26,13 +25,13 @@ const verticalAlignments = [
     ...globalKeywords
 ];
 
-export const verticalAlignmentRules = (options: PresetInklineOptions): Rule[] => verticalAlignments.map((value) => [
+export const verticalAlignmentRules : Rule[] = verticalAlignments.map((value) => [
     new RegExp(`^vertical-align:${value}$`),
     () => ({ 'vertical-align': value }),
     { autocomplete: `(vertical-align):(${verticalAlignments.join('|')})` }
 ] as Rule);
 
-export const textAlignmentRules = (options: PresetInklineOptions): Rule[] => textAlignments.map((value) => [
+export const textAlignmentRules : Rule[] = textAlignments.map((value) => [
     new RegExp(`^text(-align)?:${value}$`),
     () => ({ 'text-align': value }),
     { autocomplete: `(text-align):(${textAlignments.join('|')})` }
