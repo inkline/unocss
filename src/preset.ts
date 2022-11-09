@@ -1,10 +1,9 @@
-import { PresetInklineOptions, Theme } from './types';
+import { PresetInklineOptions, UserOptions, Theme } from './types';
 import { Preset } from 'unocss/dist';
 import { loadConfigFromFile } from '@inkline/config';
 import { rules } from './rules';
 import { variants } from './variants';
 import { DEFAULT_CLASS_PREFIX } from './constants';
-import { UserOptions } from '../plugin/types';
 
 export function presetInkline (options: UserOptions, presetOptions: PresetInklineOptions = {}): Preset<Theme> {
     const theme = {} as unknown as Theme;

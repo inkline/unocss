@@ -1,11 +1,11 @@
 import { defineConfig } from 'vite';
 import { configDefaults } from 'vitest/config';
 import inspect from 'vite-plugin-inspect';
-import { inkline } from './src/vite';
+import { inkline } from '@inkline/plugin/vite';
 import { resolve } from 'path';
 import unocss from '@unocss/vite';
 import { presetInkline } from './src/preset';
-import { UserOptions } from './src/plugin/types';
+import { UserOptions } from './src/types';
 
 const inklineConfig: UserOptions = {
     outputDir: resolve(__dirname, 'src/playground/css/config')
@@ -13,7 +13,7 @@ const inklineConfig: UserOptions = {
 
 // https://vitejs.dev/config/
 export default defineConfig({
-    root: resolve(__dirname, 'src/playground/vite'),
+    root: resolve(__dirname, 'src/playground'),
     server: {
         port: 8080
     },
