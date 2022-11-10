@@ -3,7 +3,7 @@ import type { Rule } from '@unocss/core';
 import { Theme } from '../types';
 
 export const visibilityRules: Rule<Theme>[] = [
-    [/^([a-zA-Z0-9]+):visible(?::.+)?$/, ([_, breakpoint, display], { theme, rawSelector }) => {
+    [/^(xs|sm|md|lg|xl|xxl):visible(?::.+)?$/, ([_, breakpoint, display], { theme, rawSelector }) => {
         const selector = e(rawSelector);
 
         return `${selector} {
@@ -16,7 +16,7 @@ export const visibilityRules: Rule<Theme>[] = [
     }
 }`;
     }],
-    [/^([a-zA-Z0-9]+):hidden$/, ([_, breakpoint], { theme, rawSelector }) => {
+    [/^(xs|sm|md|lg|xl|xxl):hidden$/, ([_, breakpoint], { theme, rawSelector }) => {
         const selector = e(rawSelector);
 
         return `@media screen and (min-width: ${theme.breakpoints[breakpoint]}px) {

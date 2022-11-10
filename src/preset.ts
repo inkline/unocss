@@ -6,20 +6,18 @@ import { variants } from './variants';
 import { DEFAULT_CLASS_PREFIX } from './constants';
 
 export function presetInkline (options: UserOptions, presetOptions: PresetInklineOptions = {}): Preset<Theme> {
-    const theme = {} as unknown as Theme;
-
     presetOptions.prefix = presetOptions.prefix || DEFAULT_CLASS_PREFIX;
 
     return {
         name: '@inkline/unocss',
         rules,
-        theme,
         variants,
+        theme: {} as unknown as Theme,
         prefix: presetOptions.prefix,
         options: presetOptions,
         preflights: [
             {
-                getCSS: async () => {
+                getCSS: async ({ theme }) => {
                     const config = await loadConfigFromFile(options);
 
                     Object.assign(theme, config.theme.default);

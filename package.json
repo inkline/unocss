@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "@grozav/eslint-config": "1.0.4",
+    "@inkline/plugin": "^1.0.3",
     "@types/shelljs": "0.8.11",
     "chokidar": "^3.5.3",
     "eslint": "8.25.0",

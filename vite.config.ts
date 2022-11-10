@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 import { configDefaults } from 'vitest/config';
 import inspect from 'vite-plugin-inspect';
-import { inkline } from '@inkline/plugin/vite';
+import inkline from '@inkline/plugin/vite';
 import { resolve } from 'path';
 import unocss from '@unocss/vite';
 import { presetInkline } from './src/preset';
