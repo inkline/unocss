@@ -4,6 +4,6 @@ export const displayRules : Rule[] = [
     [
         /^display(?::(.+))$/,
         ([_, value]) => [['display', value]],
-        { autocomplete: ['display:(inline|block|flex|inline-block|inline-flex|contents|table|none)'] }
+        { autocomplete: ['display:(block|inline|inline-block|flex|inline-flex|grid|inline-grid|flow-root|none|contents|table|table-row|list-item|inherit|initial|revert|revert-layer|unset)'] }
     ]
 ];

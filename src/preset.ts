@@ -15,15 +15,11 @@ export function presetInkline (options: UserOptions, presetOptions: PresetInklin
         theme: {} as unknown as Theme,
         prefix: presetOptions.prefix,
         options: presetOptions,
-        preflights: [
-            {
-                getCSS: async ({ theme }) => {
-                    const config = await loadConfigFromFile(options);
+        extendTheme: [
+            async (theme) => {
+                const config = await loadConfigFromFile(options);
 
-                    Object.assign(theme, config.theme.default);
-
-                    return '';
-                }
+                Object.assign(theme, config.theme.default);
             }
         ]
     };

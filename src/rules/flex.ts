@@ -8,7 +8,7 @@ export const flexRules : Rule[] = [
     ],
     ['flex', { display: 'flex' }],
     ['inline-flex', { display: 'inline-flex' }],
-    ['flex-inline', { display: 'inline-flex' }],
+    ['flex:inline', { display: 'inline-flex' }],
 
     // flex
     [/^flex:(.*)$/, ([, value]) => ({ flex: value })],

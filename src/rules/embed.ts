@@ -2,16 +2,6 @@ import { toEscapedSelector as e } from 'unocss';
 import type { Rule } from '@unocss/core';
 
 export const embedRules : Rule[] = [
-    [
-        'overlay', {
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0,
-            'z-index': 1
-        }
-    ],
     [/^embed:(.+):(.+)$/, ([, ratioX, ratioY], { rawSelector }) => {
         const selector = e(rawSelector);
 

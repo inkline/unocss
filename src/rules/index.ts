@@ -1,4 +1,4 @@
-import { textAlignmentRules, verticalAlignmentRules } from './align';
+import { verticalAlignmentRules } from './align';
 import { borderRules } from './border';
 import { borderRadiusRules } from './border-radius';
 import { colorRules } from './color';
@@ -25,7 +25,6 @@ export const rules = [
     ...flexRules,
     ...floatRules,
     ...listRules,
-    ...textAlignmentRules,
     ...verticalAlignmentRules,
     ...overflowRules,
     ...overlayRules,
