@@ -11,15 +11,15 @@ export const flexRules : Rule[] = [
     ['flex:inline', { display: 'inline-flex' }],
 
     // flex
-    [/^flex:(.*)$/, ([, value]) => ({ flex: value })],
     ['flex:1', { flex: '1 1 0%' }],
     ['flex:auto', { flex: '1 1 auto' }],
     ['flex:initial', { flex: '0 1 auto' }],
     ['flex:none', { flex: 'none' }],
+    [/^flex:(auto|none|\d+(?:r?em|px|%)?|inherit|initial|revert|revert-layer|unset|min-content)$/, ([, value]) => ({ flex: value })],
 
     // shrink/grow/basis
-    [/^(?:flex-)?shrink(?::(.*))?$/, ([, value = '']) => ({ 'flex-shrink': value ?? 1 }), { autocomplete: ['flex-shrink:<num>', 'shrink:<num>'] }],
-    [/^(?:flex-)?grow(?::(.*))?$/, ([, value = '']) => ({ 'flex-grow': value ?? 1 }), { autocomplete: ['flex-grow:<num>', 'grow:<num>'] }],
+    [/^(?:flex-)?shrink(?::(.*))?$/, ([, value = '']) => ({ 'flex-shrink': value || 1 }), { autocomplete: ['flex-shrink:<num>', 'shrink:<num>'] }],
+    [/^(?:flex-)?grow(?::(.*))?$/, ([, value = '']) => ({ 'flex-grow': value || 1 }), { autocomplete: ['flex-grow:<num>', 'grow:<num>'] }],
     [/^(?:flex-)?basis:(.+)$/, ([, value]) => ({ 'flex-basis': /\d+/.test(value) ? `calc(var(--spacing) * ${value})` : value }), { autocomplete: ['flex-basis:$spacing', 'basis:$spacing'] }],
 
     // wraps

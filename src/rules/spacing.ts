@@ -34,11 +34,7 @@ export const marginRules : Rule[] = [
         sidesPropertyRule('margin')
     ],
     [
-        /^margin-(block|inline)(?::(-?.+))?$/,
-        sidesPropertyRule('margin')
-    ],
-    [
-        /^margin-(block-start|block-end|inline-start|inline-end)(?::(-?.+))?$/,
+        /^margin-(block|block-start|block-end|inline|inline-start|inline-end)(?::(-?.+))?$/,
         sidesPropertyRule('margin')
     ]
 ];
