@@ -188,7 +188,9 @@ const borderRadiusValues = [
     '1',
     '2',
     '3',
-    '4'
+    '4',
+    '50%',
+    '100%'
 ];
 
 const borderStyleValues = [
