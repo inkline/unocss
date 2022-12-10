@@ -2,7 +2,6 @@ const globalKeywordValues = [
     'inherit',
     'initial',
     'revert',
-    'revert-layer',
     'unset'
 ];
 
@@ -234,7 +233,6 @@ const displayValues = [
     'inherit',
     'initial',
     'revert',
-    'revert-layer',
     'unset'
 ];
 
