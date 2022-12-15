@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 const globalKeywordValues = [
     'inherit',
     'initial',
@@ -285,7 +288,9 @@ const flexWrapValues = [
 
 const alignItemsValues = [
     'flex-start',
+    'start',
     'flex-end',
+    'end',
     'center',
     'baseline',
     'stretch'
@@ -294,7 +299,9 @@ const alignItemsValues = [
 const alignSelfValues = [
     'auto',
     'flex-start',
+    'start',
     'flex-end',
+    'end',
     'center',
     'baseline',
     'stretch'
@@ -302,7 +309,9 @@ const alignSelfValues = [
 
 const alignContentValues = [
     'flex-start',
+    'start',
     'flex-end',
+    'end',
     'center',
     'space-between',
     'space-around',
@@ -311,7 +320,9 @@ const alignContentValues = [
 
 const justifyContentValues = [
     'flex-start',
+    'start',
     'flex-end',
+    'end',
     'center',
     'space-between',
     'space-around',
@@ -373,6 +384,7 @@ const sizingValues = [
 ];
 
 const spacingValues = [
+    'auto',
     '0',
     '1/4',
     '1/3',
@@ -421,6 +433,14 @@ const fontStyleValues = [
     'normal',
     'italic',
     'oblique'
+];
+
+const fontSizeValues = [
+    'xs',
+    'sm',
+    'md',
+    'lg',
+    'xl'
 ];
 
 const fontFamilyValues = [
@@ -563,6 +583,8 @@ const pairs = [
     { property: 'text', values: textTransformValues },
     { property: 'font-weight', values: fontWeightValues },
     { property: 'text', values: fontWeightValues },
+    { property: 'font-size', values: fontSizeValues },
+    { property: 'text', values: fontSizeValues },
     { property: 'font-style', values: fontStyleValues },
     { property: 'text', values: fontStyleValues },
     { property: 'font-family', values: fontFamilyValues },
@@ -596,4 +618,22 @@ for (const { property, values } of pairs) {
     classes += '\n';
 }
 
-console.log(classes);
+const document = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vite App</title>
+</head>
+<body>
+<div id="app">
+    <div class="
+${classes}
+    "></div>
+</div>
+<script type="module" src="./main.ts"></script>
+</body>
+</html>
+`;
+
+fs.writeFileSync(path.resolve(__dirname, 'index.html'), document);

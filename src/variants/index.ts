@@ -1,5 +1,4 @@
-import { importantVariant } from './important';
+import { breakpointsVariant } from "./breakpoints";
+import { importantVariant } from "./important";
 
-export const variants = [
-    importantVariant
-];
+export const variants = [breakpointsVariant, importantVariant];

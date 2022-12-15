@@ -1,15 +1,19 @@
-import { toEscapedSelector as e } from 'unocss';
-import type { Rule } from '@unocss/core';
+import { toEscapedSelector as e } from "unocss";
+import type { Rule } from "@unocss/core";
+import { ResolvedTheme } from "@inkline/config";
 
-export const floatRules : Rule[] = [
+export const floatRules: Rule<ResolvedTheme>[] = [
     [/^float:(.+)$/, ([_, value]) => ({ float: value })],
-    [/^clearfix$/, (_, { rawSelector }) => {
-        const selector = e(rawSelector);
+    [
+        /^clearfix$/,
+        (_, { rawSelector }) => {
+            const selector = e(rawSelector);
 
-        return `${selector}::after {
+            return `${selector}::after {
     content: '';
     display: table;
     clear: both;
 }`;
-    }]
+        },
+    ],
 ];

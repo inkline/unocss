@@ -1,21 +1,25 @@
-import { toEscapedSelector as e } from 'unocss';
-import type { Rule } from '@unocss/core';
+import { toEscapedSelector as e } from "unocss";
+import type { Rule } from "@unocss/core";
+import { ResolvedTheme } from "@inkline/config";
 
-export const overlayRules : Rule[] = [
+export const overlayRules: Rule<ResolvedTheme>[] = [
     [
-        'overlay', {
-            position: 'absolute',
+        "overlay",
+        {
+            position: "absolute",
             top: 0,
             right: 0,
             bottom: 0,
             left: 0,
-            'z-index': 1
-        }
+            "z-index": 1,
+        },
     ],
-    [/^overlay-link$/, ([, name], { rawSelector }) => {
-        const selector = e(rawSelector);
+    [
+        /^overlay-link$/,
+        ([, name], { rawSelector }) => {
+            const selector = e(rawSelector);
 
-        return `
+            return `
 ${selector}::after {
     content: "";
     position: absolute;
@@ -26,5 +30,6 @@ ${selector}::after {
     z-index: 1;
     pointer-events: auto;
 }`;
-    }]
+        },
+    ],
 ];

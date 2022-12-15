@@ -1,5 +1,6 @@
-import type { Rule } from '@unocss/core';
+import type { Rule } from "@unocss/core";
+import { ResolvedTheme } from "@inkline/config";
 
-export const overflowRules : Rule[] = [
-    [/^overflow:(.+)$/, ([_, value]) => ({ overflow: value })]
+export const overflowRules: Rule<ResolvedTheme>[] = [
+    [/^overflow:(.+)$/, ([_, value]) => ({ overflow: value })],
 ];

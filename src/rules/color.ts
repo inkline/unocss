@@ -1,15 +1,16 @@
-import type { Rule } from '@unocss/core';
-import { colorPropertyRule } from './helpers';
+import type { Rule } from "@unocss/core";
+import { colorPropertyRule } from "./helpers";
+import { ResolvedTheme } from "@inkline/config";
 
-export const colorRules : Rule[] = [
+export const colorRules: Rule<ResolvedTheme>[] = [
     [
         /^(?:text-)?color(?::(-?.+))?$/,
-        colorPropertyRule('color'),
-        { autocomplete: ['color:<value>', 'text-color:<value>'] }
+        colorPropertyRule("color"),
+        { autocomplete: ["color:<value>", "text-color:<value>"] },
     ],
     [
         /^background(?:-color)?(?::(-?.+))?$/,
-        colorPropertyRule('background-color'),
-        { autocomplete: ['background:<value>', 'background-color:<value>'] }
-    ]
+        colorPropertyRule("background-color"),
+        { autocomplete: ["background:<value>", "background-color:<value>"] },
+    ],
 ];

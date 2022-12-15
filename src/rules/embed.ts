@@ -1,11 +1,14 @@
-import { toEscapedSelector as e } from 'unocss';
-import type { Rule } from '@unocss/core';
+import { toEscapedSelector as e } from "unocss";
+import type { Rule } from "@unocss/core";
+import { ResolvedTheme } from "@inkline/config";
 
-export const embedRules : Rule[] = [
-    [/^embed:(.+):(.+)$/, ([, ratioX, ratioY], { rawSelector }) => {
-        const selector = e(rawSelector);
+export const embedRules: Rule<ResolvedTheme>[] = [
+    [
+        /^embed:(.+):(.+)$/,
+        ([, ratioX, ratioY], { rawSelector }) => {
+            const selector = e(rawSelector);
 
-        return `
+            return `
 ${selector} {
     position: relative;
     display: block;
@@ -30,7 +33,8 @@ ${selector} video {
 ${selector}::before {
     display: block;
     content: '';
-    padding-top: ${parseInt(ratioY, 10) / parseInt(ratioX, 10) * 100}%;
+    padding-top: ${(parseInt(ratioY, 10) / parseInt(ratioX, 10)) * 100}%;
 }`;
-    }]
+        },
+    ],
 ];

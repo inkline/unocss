@@ -1,31 +1,72 @@
-import type { Rule } from '@unocss/core';
-import { globalKeywords } from '../utilities';
+import type { Rule } from "@unocss/core";
+import { globalKeywords } from "../utilities";
+import { ResolvedTheme } from "@inkline/config";
 
 const textAlignments = [
-    'center',
-    'left',
-    'right',
-    'justify',
-    'start',
-    'end',
-    ...globalKeywords
+    "center",
+    "left",
+    "right",
+    "justify",
+    "start",
+    "end",
+    ...globalKeywords,
 ];
 
-export const typographyRules : Rule[] = [
-    ...textAlignments.map((value) => [
-        new RegExp(`^text(-align)?:${value}$`),
-        () => ({ 'text-align': value }),
-        { autocomplete: `(text-align):(${textAlignments.join('|')})` }
-    ] as Rule),
-    [/^text(?:-transform)?:(none|lowercase|uppercase|capitalize)$/, ([, value]) => ({ 'text-transform': value })],
-    [/^(?:font-weight|text):(lighter|extralight|light|normal|semibold|bold|black|bolder)$/, ([, value]) => ({ 'font-weight': `var(--font-weight-${value})` })],
-    [/^(?:font-style|text):(normal|italic|oblique)$/, ([,, value]) => ({ 'font-style': value })],
-    [/^(?:font-family|text):(?:(primary|secondary)-)?(base|monospace|print)$/, ([, category, type]) => ({ 'font-family': `var(--font-family-${category || 'primary'}-${type})` })],
-    [/^white-space:(.+)$/, ([, value]) => ({ 'white-space': value })],
-    ['text:muted', { color: 'var(--text--color-muted)' }],
-    ['text:reset', { color: 'inherit' }],
-    ['text:hide', { 'text-indent': '-10000px' }],
-    ['text:truncate', { overflow: 'hidden', 'text-overflow': 'ellipsis', 'white-space': 'nowrap' }],
-    ['text:break-word', { 'word-break': 'break-word', 'word-wrap': 'break-word' }],
-    [/^text-decoration:(none|underline|line-through|overline|inherit)$/, ([, value]) => ({ 'text-decoration': value })]
+export const typographyRules: Rule<ResolvedTheme>[] = [
+    ...textAlignments.map(
+        (value) =>
+            [
+                new RegExp(`^text(-align)?:${value}$`),
+                () => ({ "text-align": value }),
+                {
+                    autocomplete: `(text-align|text):(${textAlignments.join(
+                        "|"
+                    )})`,
+                },
+            ] as Rule
+    ),
+    [
+        /^text(?:-transform)?:(none|lowercase|uppercase|capitalize)$/,
+        ([, value]) => ({ "text-transform": value }),
+    ],
+    [
+        /^(?:font-weight|text):(lighter|extralight|light|normal|semibold|bold|black|bolder)$/,
+        ([, value]) => ({ "font-weight": `var(--font-weight-${value})` }),
+    ],
+    [
+        /^(?:font-size|text):(xs|sm|md|lg|xl|2xl)$/,
+        ([, value]) => ({ "font-size": `var(--font-size-${value})` }),
+    ],
+    [
+        /^(?:font-style|text):(normal|italic|oblique)$/,
+        ([, value]) => ({ "font-style": value }),
+    ],
+    [
+        /^(?:font-family|text):(?:(primary|secondary)-)?(base|monospace|print)$/,
+        ([, category, type]) => ({
+            "font-family": `var(--font-family-${
+                category || "primary"
+            }-${type})`,
+        }),
+    ],
+    [/^white-space:(.+)$/, ([, value]) => ({ "white-space": value })],
+    ["text:muted", { color: "var(--text--color-muted)" }],
+    ["text:reset", { color: "inherit" }],
+    ["text:hide", { "text-indent": "-10000px" }],
+    [
+        "text:truncate",
+        {
+            overflow: "hidden",
+            "text-overflow": "ellipsis",
+            "white-space": "nowrap",
+        },
+    ],
+    [
+        "text:break-word",
+        { "word-break": "break-word", "word-wrap": "break-word" },
+    ],
+    [
+        /^text-decoration:(none|underline|line-through|overline|inherit)$/,
+        ([, value]) => ({ "text-decoration": value }),
+    ],
 ];

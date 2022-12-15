@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "prepare:dev": "cp src/playground/index.template.html src/playground/index.html",
-    "prepare:build": "cp src/playground/all.template.html src/playground/index.html",
+    "prepare:build": "node src/playground/generate.js",
     "start": "npm run build",
     "dev": "npm run prepare:dev && vite",
     "build": "unbuild",
@@ -20,7 +20,7 @@
     "postversion": "ts-node scripts/postversion.ts"
   },
   "devDependencies": {
-    "@grozav/eslint-config": "1.0.4",
+    "@grozav/eslint-config": "1.1.4",
     "@inkline/plugin": "^1.0.3",
     "@types/shelljs": "0.8.11",
     "chokidar": "^3.5.3",
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@grozav/utils": "1.1.4",
-    "@inkline/config": "^1.7.4",
+    "@inkline/config": "^1.7.7",
     "unocss": "^0.45.29",
     "unplugin": "^0.9.6"
   },
