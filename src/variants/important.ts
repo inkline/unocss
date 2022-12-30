@@ -20,7 +20,7 @@ export const importantVariant: Variant<ResolvedTheme> = {
                 matcher: base,
                 body: (body) => {
                     body.forEach((v) => {
-                        if (v[1]) {
+                        if (v[1] && !v[1].toString().includes("!important")) {
                             v[1] += " !important";
                         }
                     });

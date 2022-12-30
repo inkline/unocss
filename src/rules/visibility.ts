@@ -5,8 +5,8 @@ import { ResolvedTheme } from "@inkline/config";
 
 export const visibilityRules: Rule<ResolvedTheme>[] = [
     [
-        /^visible(?::.+)?$/,
-        ([_, display], { rawSelector }) => ({
+        /^visible(?::(.+))?$/,
+        ([_, display]) => ({
             display: `${display || "block"} !important`,
         }),
     ],

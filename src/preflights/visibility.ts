@@ -8,7 +8,11 @@ export const visibilityPreflight: Preflight<ResolvedTheme> = {
 
         return `
       ${Object.keys(theme.breakpoints)
-          .map((breakpoint) => `.${prefix}${breakpoint}:visible`)
+          .map((breakpoint) => {
+              const className = `.${prefix}${breakpoint}\\:visible`;
+              return [className, `${className}\\!`];
+          })
+          .flat()
           .join(", ")} {
         display: none !important;
       }
