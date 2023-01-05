@@ -50,7 +50,18 @@ export const typographyRules: Rule<ResolvedTheme>[] = [
         }),
     ],
     [/^white-space:(.+)$/, ([, value]) => ({ "white-space": value })],
-    ["text:muted", { color: "var(--text--color-muted)" }],
+    [
+        /^text:(muted|weak|weaker|weakest)$/,
+        ([, value]) => {
+            const aliases = {
+                muted: "weak",
+            };
+
+            return {
+                color: `var(--text--color-${aliases[value] || value})`,
+            };
+        },
+    ],
     ["text:reset", { color: "inherit" }],
     ["text:hide", { "text-indent": "-10000px" }],
     [

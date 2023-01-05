@@ -362,7 +362,16 @@ const fontFamilyValues = [
 
 const whiteSpaceValues = ["normal", "nowrap", "pre", "pre-line", "pre-wrap"];
 
-const textStyleValues = ["muted", "reset", "hide", "truncate", "break-word"];
+const textStyleValues = [
+    "muted",
+    "weak",
+    "weaker",
+    "weakest",
+    "reset",
+    "hide",
+    "truncate",
+    "break-word",
+];
 
 const textDecorationValues = [
     "none",

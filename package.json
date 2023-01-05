@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@grozav/eslint-config": "1.1.4",
+    "@inkline/config": "^1.7.10",
     "@inkline/plugin": "^1.0.3",
     "@types/shelljs": "0.8.11",
     "chokidar": "^3.5.3",
@@ -41,9 +42,11 @@
   },
   "dependencies": {
     "@grozav/utils": "1.1.4",
-    "@inkline/config": "^1.7.7",
     "unocss": "^0.45.29",
     "unplugin": "^0.9.6"
+  },
+  "peerDependencies": {
+    "@inkline/config": ">=1"
   },
   "main": "index.cjs",
   "module": "index.mjs",
