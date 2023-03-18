@@ -58,7 +58,7 @@ export const typographyRules: Rule<ResolvedTheme>[] = [
             };
 
             return {
-                color: `var(--text--color-${aliases[value] || value})`,
+                color: `var(--text-color-${aliases[value] || value})`,
             };
         },
     ],

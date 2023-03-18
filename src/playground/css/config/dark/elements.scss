@@ -1,5 +1,11 @@
 .dark-theme {
     /**
+     * Code variables
+     */
+    --code--color: var(--color-red);
+    --code--background: var(--color-gray-900);
+
+    /**
      * Body variables
      */
     --body--background: var(--color-gray-800);
