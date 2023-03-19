@@ -49,7 +49,10 @@ export const typographyRules: Rule<ResolvedTheme>[] = [
             }-${type})`,
         }),
     ],
-    [/^white-space:(.+)$/, ([, value]) => ({ "white-space": value })],
+    [
+        /^(white-space|text):(normal|nowrap|pre|pre-line|pre-wrap)$/,
+        ([, value]) => ({ "white-space": value }),
+    ],
     [
         /^text:(muted|weak|weaker|weakest)$/,
         ([, value]) => {

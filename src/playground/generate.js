@@ -541,6 +541,7 @@ const pairs = [
     { property: "font-family", values: fontFamilyValues },
     { property: "text", values: fontFamilyValues },
     { property: "white-space", values: whiteSpaceValues },
+    { property: "text", values: whiteSpaceValues },
     { property: "text", values: textStyleValues },
     { property: "text-decoration", values: textDecorationValues },
     { property: "vertical-align", values: verticalAlignmentValues },
