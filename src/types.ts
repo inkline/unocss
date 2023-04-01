@@ -9,11 +9,21 @@ export interface UserOptions {
     extName?: `.${string}`;
 }
 
+export interface PresetMediaQueryMatcher {
+    matcher: string;
+    mediaQuery: string;
+}
+
 export interface PresetInklineOptions extends PresetOptions {
     /**
      * Utils prefix
      *
-     * @default undefined
+     * @default _
      */
     prefix?: string;
+
+    /**
+     * Custom media matchers
+     */
+    media?: PresetMediaQueryMatcher[];
 }

@@ -3,6 +3,8 @@ const path = require("path");
 
 const globalKeywordValues = ["inherit", "initial", "revert", "unset"];
 
+const breakpointValues = ["xs", "sm", "md", "lg", "xl", "2xl"];
+
 const colorValues = [
     "red",
     "orange",
@@ -275,7 +277,23 @@ const justifyContentValues = [
     "space-evenly",
 ];
 
-const orderValues = ["first", "last", "0", "1", "2", "3", "4", "5"];
+const orderValues = [
+    "first",
+    "last",
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+];
 
 const floatValues = ["left", "right", "none"];
 
@@ -471,12 +489,19 @@ const pairs = [
     { property: "background-color", values: colorSwatchValues },
     { property: "background", values: colorSwatchValues },
     { property: "display", values: displayValues },
+    { property: "print:display", values: displayValues },
     { property: "embed", values: embedValues },
-    { property: "flex-direction", values: flexDirectionValues },
+    {
+        property: "flex-direction",
+        values: flexDirectionValues,
+    },
     { property: "flex", values: flexDirectionValues },
     { property: "inline-flex", values: [""] },
     { property: "flex", values: flexValues },
-    { property: "flex-shrink", values: flexShrinkGrowValues },
+    {
+        property: "flex-shrink",
+        values: flexShrinkGrowValues,
+    },
     { property: "shrink", values: flexShrinkGrowValues },
     { property: "flex-grow", values: flexShrinkGrowValues },
     { property: "grow", values: flexShrinkGrowValues },
@@ -484,10 +509,17 @@ const pairs = [
     { property: "basis", values: flexBasisValues },
     { property: "flex-wrap", values: flexWrapValues },
     { property: "align-items", values: alignItemsValues },
+    { property: "align-items", values: alignItemsValues },
     { property: "align", values: alignItemsValues },
     { property: "align-self", values: alignSelfValues },
-    { property: "align-content", values: alignContentValues },
-    { property: "justify-content", values: justifyContentValues },
+    {
+        property: "align-content",
+        values: alignContentValues,
+    },
+    {
+        property: "justify-content",
+        values: justifyContentValues,
+    },
     { property: "justify", values: justifyContentValues },
     { property: "order", values: orderValues },
     { property: "float", values: floatValues },
@@ -652,19 +684,18 @@ const pairs = [
     { property: "white-space", values: whiteSpaceValues },
     { property: "text", values: textStyleValues },
     { property: "text-decoration", values: textDecorationValues },
-    { property: "xs:visible", values: breakpointVisibleValues },
-    { property: "sm:visible", values: breakpointVisibleValues },
-    { property: "md:visible", values: breakpointVisibleValues },
-    { property: "lg:visible", values: breakpointVisibleValues },
-    { property: "xl:visible", values: breakpointVisibleValues },
-    { property: "2xl:visible", values: breakpointVisibleValues },
-    { property: "xs:hidden", values: [""] },
-    { property: "sm:hidden", values: [""] },
-    { property: "md:hidden", values: [""] },
-    { property: "lg:hidden", values: [""] },
-    { property: "xl:hidden", values: [""] },
-    { property: "2xl:hidden", values: [""] },
+    ...breakpointPair({ property: "visible", values: breakpointVisibleValues }),
+    ...breakpointPair({ property: "hidden", values: [""] }),
 ];
+
+function breakpointPair({ property, values }) {
+    return breakpointValues
+        .map((breakpoint) => ({
+            property: `${breakpoint}:${property}`,
+            values,
+        }))
+        .concat({ property, values });
+}
 
 let classes = "";
 for (const { property, values, responsive } of pairs) {

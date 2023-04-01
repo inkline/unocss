@@ -50,7 +50,7 @@ export const typographyRules: Rule<ResolvedTheme>[] = [
         }),
     ],
     [
-        /^(white-space|text):(normal|nowrap|pre|pre-line|pre-wrap)$/,
+        /^(?:white-space|text):(normal|nowrap|pre|pre-line|pre-wrap)$/,
         ([, value]) => ({ "white-space": value }),
     ],
     [

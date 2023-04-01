@@ -1,17 +1,25 @@
-import { UnoGenerator } from "unocss";
-import { Preset } from "unocss/dist";
+import { UnoGenerator, Preset } from "unocss";
 import { ResolvedTheme } from "@inkline/config";
+import { PresetMediaQueryMatcher } from "../types";
 
 export function getInklinePresetFromGenerator(
     generator: UnoGenerator
-): Preset<ResolvedTheme> | undefined {
+): Preset<ResolvedTheme> {
     const presets = generator.userConfig.presets as Preset<ResolvedTheme>[];
 
-    return presets.find((preset) => preset.name === "@inkline/unocss");
+    return presets.find((preset) => preset.name === "@inkline/unocss")!;
 }
 
-export function getPrefixFromGenerator(generator: UnoGenerator) {
+export function getPrefixFromGenerator(generator: UnoGenerator): string {
     const inklinePreset = getInklinePresetFromGenerator(generator);
 
-    return (inklinePreset as { prefix?: string })?.prefix || "";
+    return inklinePreset.prefix || "";
+}
+
+export function getMediaFromGenerator(
+    generator: UnoGenerator
+): PresetMediaQueryMatcher[] {
+    const inklinePreset = getInklinePresetFromGenerator(generator);
+
+    return inklinePreset.options.media || [];
 }
