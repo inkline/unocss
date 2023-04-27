@@ -315,8 +315,24 @@ const positionValues = [
 const visuallyHiddenValues = ["", "focusable"];
 
 const baseSizingValues = ["unset", "0", "25%", "50%", "75%", "100%"];
-const sizingValues = ["auto", ...baseSizingValues];
-const maxSizingValues = [...baseSizingValues];
+
+const maxHeightSizingValues = [
+    "100vh",
+    "75vh",
+    "50vh",
+    "25vh",
+    ...baseSizingValues,
+];
+const heightSizingValues = ["auto", ...maxHeightSizingValues];
+
+const maxWidthSizingValues = [
+    "100vw",
+    "75vw",
+    "50vw",
+    "25vw",
+    ...baseSizingValues,
+];
+const widthSizingValues = ["auto", ...maxWidthSizingValues];
 
 const spacingValues = [
     "0",
@@ -530,10 +546,10 @@ const pairs = [
     { property: "overlay-link", values: [""] },
     { property: "position", values: positionValues },
     { property: "visually-hidden", values: visuallyHiddenValues },
-    { property: "height", values: sizingValues },
-    { property: "max-height", values: maxSizingValues },
-    { property: "width", values: sizingValues },
-    { property: "max-width", values: maxSizingValues },
+    { property: "height", values: heightSizingValues },
+    { property: "max-height", values: maxHeightSizingValues },
+    { property: "width", values: widthSizingValues },
+    { property: "max-width", values: maxWidthSizingValues },
     { property: "padding", values: paddingValues },
     { property: "padding-top", values: paddingValues },
     { property: "padding-right", values: paddingValues },
@@ -639,10 +655,6 @@ const pairs = [
     { property: "overlay-link", values: [""] },
     { property: "position", values: positionValues },
     { property: "visually-hidden", values: visuallyHiddenValues },
-    { property: "height", values: sizingValues },
-    { property: "max-height", values: sizingValues },
-    { property: "width", values: sizingValues },
-    { property: "max-width", values: sizingValues },
     { property: "padding", values: spacingValues },
     { property: "padding-top", values: spacingValues },
     { property: "padding-right", values: spacingValues },
