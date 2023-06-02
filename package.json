@@ -1,6 +1,6 @@
 {
   "name": "@inkline/unocss",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "scripts": {
     "prepare:dev": "cp src/playground/index.template.html src/playground/index.html",
     "prepare:build": "node src/playground/generate.js",
