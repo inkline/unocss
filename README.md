@@ -39,4 +39,4 @@ export default defineConfig({
 ~~~
 
 ## License
-Commercial
+MIT License
