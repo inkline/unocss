@@ -7,7 +7,7 @@ import { preflights } from "./preflights";
 import { DEFAULT_CLASS_PREFIX } from "./constants";
 
 export function presetInkline(
-    options: UserOptions,
+    options?: UserOptions,
     presetOptions: PresetInklineOptions = {}
 ): Preset<Theme> {
     presetOptions.prefix = presetOptions.prefix || DEFAULT_CLASS_PREFIX;
