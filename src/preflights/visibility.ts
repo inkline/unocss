@@ -1,5 +1,5 @@
-import { Preflight } from "unocss";
-import { ResolvedTheme } from "@inkline/config";
+import type { Preflight } from "unocss";
+import type { ResolvedTheme } from "@inkline/config";
 import { getPrefixFromGenerator } from "../utilities";
 
 export const visibilityPreflight: Preflight<ResolvedTheme> = {

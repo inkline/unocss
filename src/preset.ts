@@ -2,30 +2,24 @@ import { PresetInklineOptions, UserOptions, Theme } from "./types";
 import { Preset } from "unocss/dist";
 import { loadConfigFromFile } from "@inkline/config";
 import { rules } from "./rules";
-import { variants } from "./variants";
-import { preflights } from "./preflights";
+import { breakpointsVariant, importantVariant, printVariant } from "./variants";
+import { visibilityPreflight } from "./preflights";
 import { DEFAULT_CLASS_PREFIX } from "./constants";
 
-export function presetInkline(
+export async function createPreset(
     options?: UserOptions,
     presetOptions: PresetInklineOptions = {}
-): Preset<Theme> {
+): Promise<Preset<Theme>> {
+    const config = await loadConfigFromFile(options);
     presetOptions.prefix = presetOptions.prefix || DEFAULT_CLASS_PREFIX;
 
     return {
         name: "@inkline/unocss",
         rules,
-        variants,
-        preflights,
-        theme: {} as unknown as Theme,
+        variants: [breakpointsVariant, importantVariant, printVariant],
+        preflights: [visibilityPreflight],
+        theme: config.theme.default,
         prefix: presetOptions.prefix,
         options: presetOptions,
-        extendTheme: [
-            async (theme) => {
-                const config = await loadConfigFromFile(options);
-
-                Object.assign(theme, config.theme.default);
-            },
-        ],
     };
 }
